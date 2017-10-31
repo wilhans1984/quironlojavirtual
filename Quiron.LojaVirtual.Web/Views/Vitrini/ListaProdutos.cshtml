@@ -4,11 +4,10 @@
 
 @foreach (var p in Model.Produtos)
 {
-    <div>
-        <h3>@p.Nome</h3>
-        @p.Descricao
-        <h3>@p.Preco.ToString("C")</h3>
-    </div>
+    @Html.Partial("ProdutoDetalhes", p)
 }
 
-@Html.PAgeLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new {pagina = x}))
+    <div class="btn-group pull-right">
+        @Html.PAgeLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new { pagina = x }))
+    </div>
+
